@@ -13,14 +13,11 @@ const binary_search = (arr, target,
                         * @return {int} >0:大了 向下查找 <0:小了 向上查找 =0:找到
                         */
                        cmpr = (found,target) => {return found - target}) => {
-    if(arr.length === 1){
-        return arr[0] === target ? 0 : -1
-    }
     // 搜索下界与上界、二分中心
     let bottom = 0, top = arr.length - 1, center
     // 比较结果
     let cmprRs
-    while(top !== bottom){
+    while(top >= bottom){
         // 二分
         center = Math.floor((bottom + top) / 2)
         // 比较center和查找目标

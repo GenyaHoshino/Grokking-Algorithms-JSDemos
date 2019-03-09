@@ -32,24 +32,48 @@ const generateDistinctRandArr = () => {
 }
 while (testCnt-- > 0) {
     // 目标数组
-    let arr = generateDistinctRandArr()
+    let arr = [762.2410120201002,
+        1230.1413811334423,
+        1367.494712073059,
+        1628.811802178737,
+        1884.6561277277463,
+        2326.114949433893,
+        2429.150419534901,
+        2891.0394923436947,
+        3565.240777028882,
+        3652.102678176042,
+        3908.83596086735,
+        3967.249513213786,
+        3970.834764320608,
+        4395.30260001364,
+        4558.9887687247065,
+        5052.552918644004,
+        5277.713618742935,
+        5522.149828668253,
+        6836.385638454312,
+        7266.568343817081,
+        7786.612631654149,
+        8260.69968455472]//generateDistinctRandArr()
     // 查找目标下标
-    let targetIndex = Math.floor(Math.random() * arr.length)
-    console.log(arr,targetIndex)
-    arr = [ 483.4217021126952,
-        1135.729566910275,
-        1440.9078845606405,
-        4586.1983768592345,
-        4630.970775042388,
-        7359.02593016906,
-        7812.432878952052 ]
-    targetIndex =6
+    let targetIndex = 0 //Math.floor(Math.random() * arr.length)
     // 查找结果
     let rs
-    if ((rs = binary_search(arr,arr[targetIndex])) != targetIndex) {
-        console.error('binary_search fail!')
+    // 测试普通版本
+    try {
+        if ((rs = binary_search(arr, arr[targetIndex])) != targetIndex) {
+            console.error(arr, targetIndex, 'binary_search fail!')
+        }
     }
-    if ((rs = binary_search_recursive(arr,arr[targetIndex])) != targetIndex) {
-        console.error('binary_search_recursive fail!')
+    catch (e) {
+        console.error(arr, targetIndex, 'binary_search ERROR!')
+    }
+    // 测试递归版本
+    try {
+        if ((rs = binary_search_recursive(arr, arr[targetIndex])) != targetIndex) {
+            console.error(arr, targetIndex, 'binary_search_recursive fail!')
+        }
+    }
+    catch (e) {
+        console.error(arr, targetIndex, 'binary_search_recursive ERROR!')
     }
 }

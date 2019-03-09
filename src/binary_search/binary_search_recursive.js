@@ -19,16 +19,13 @@ const binary_search_recursive = (arr, target, {
         return found - target
     }
 } = {}) => {
-    if(arr.length === 1){
-        return arr[0] === target ? 0 : -1
-    }
     // 搜索下界与上界为空时 初始化为数组上下界
-    bottom = bottom || 0
-    top = top || arr.length - 1
+    bottom = bottom === undefined ? 0 : bottom
+    top = top === undefined ? arr.length - 1 : top
     // 二分中心
     let center = Math.floor((bottom + top) / 2)
     // 没找到
-    if (top === bottom) {
+    if (top < bottom) {
         return -1
     }
     // 比较center和查找目标
